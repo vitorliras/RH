@@ -25,13 +25,13 @@ function NavBar() {
                 <Link to="/"><img src='../logo192.png' alt='' height='120' className='w-50 logoNavbar' ></img></Link>
 
                 <div className='navBar-list'>
-                    <li className={`${path == '/MeusDados' && 'active'}  ${path != '/MeusDados' && 'desactive'}`}><Link to="/MeusDados">Meus Dados</Link></li>
-                    <li className={`${path == '/ComunicadosInternos' && 'active'}  ${path != '/ComunicadosInternos' && 'desactive'}`}><Link to="/ComunicadosInternos">Comunicados Internos</Link></li>
-                    <li className={`${path == '/MinhasSolicitacoes' && 'active'}  ${path != '/MinhasSolicitacoes' && 'desactive'}`}><Link to="/MinhasSolicitacoes">Minhas Solicitações</Link></li>
-                    <li className={`${path == '/Financeiro' && 'active'}  ${path != '/Financeiro' && 'desactive'}`}><Link to="/Financeiro">Financeiro</Link></li>
-                    <li className={`${path == '/CalendarioAnual' && 'active'}  ${path != '/CalendarioAnual' && 'desactive'}`}><Link to="/calendarioAnual">Calendário Anual</Link></li>
-                    <li className={`${path == '/MinhaEquipe' && 'active'}  ${path != '/MinhaEquipe' && 'desactive'}`}><Link to="/MinhaEquipe">Minha Equipe</Link></li>
-                    <li className={`${path == '/PlanoCarreira' && 'active'}  ${path != '/PlanoCarreira' && 'desactive'}`}><Link to="/PlanoCarreira">Plano de Carreira</Link></li>
+                    <li className={`${path === '/MeusDados' && 'active'}  ${path !== '/MeusDados' && 'desactive'}`}><Link to="/MeusDados">Meus Dados</Link></li>
+                    <li className={`${path === '/ComunicadosInternos' && 'active'}  ${path !== '/ComunicadosInternos' && 'desactive'}`}><Link to="/ComunicadosInternos">Comunicados Internos</Link></li>
+                    <li className={`${path === '/MinhasSolicitacoes' && 'active'}  ${path !== '/MinhasSolicitacoes' && 'desactive'}`}><Link to="/MinhasSolicitacoes">Minhas Solicitações</Link></li>
+                    <li className={`${path === '/Financeiro' && 'active'}  ${path !== '/Financeiro' && 'desactive'}`}><Link to="/Financeiro">Financeiro</Link></li>
+                    <li className={`${path === '/CalendarioAnual' && 'active'}  ${path !== '/CalendarioAnual' && 'desactive'}`}><Link to="/calendarioAnual">Calendário Anual</Link></li>
+                    <li className={`${path === '/MinhaEquipe' && 'active'}  ${path !== '/MinhaEquipe' && 'desactive'}`}><Link to="/MinhaEquipe">Minha Equipe</Link></li>
+                    <li className={`${path === '/PlanoCarreira' && 'active'}  ${path !== '/PlanoCarreira' && 'desactive'}`}><Link to="/PlanoCarreira">Plano de Carreira</Link></li>
                 </div>
             </ul>
         </div>
