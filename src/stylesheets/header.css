@@ -1,0 +1,273 @@
+/***********************************HEADER*************************************************/
+
+.header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-login {
+    background-color: #3a9fc6;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: 700;
+    /* width: 100%; */
+    width: 140px;
+    height: 35px;
+    margin-top: 13px;
+    display: flex;
+    justify-content: center;
+    padding-top: 7px;
+    margin-right: 10%;
+    text-decoration: none;
+}
+
+.button-login:hover {
+    background-color: #4ea9cc;
+    color: white;
+}
+
+.header-navbar-logo {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+}
+
+/***********************************HEADER*************************************************/
+
+
+/***********************************NAVBAR*************************************************/
+.navbar {
+    margin-left: 30px;
+    /* margin-right: 250px; */
+}
+
+.menu-icon {
+    color:#282626;
+    font-size: 40px;
+    font-weight: bold;
+    /* margin: 20px; */
+    z-index: 3;
+    cursor: pointer;
+    position: relative;
+}
+
+.logoNavbar {
+    margin-top: 65px;
+    margin-left: 20%;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+}
+
+.hide-navBar {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    transition: all 0.5s;
+}
+
+.show-navBar {
+    /* overflow: scroll; */
+    text-align: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f3e7ff;
+    opacity: 0.95;
+    height: 100%;
+    width: 20%;
+    transition: all 0.5s;
+    z-index: 2;
+}
+
+.active {
+    border-bottom: 3px solid #282626 !important;
+    width: 80% !important;
+    padding: 6px !important;
+}
+
+.navBar-list .active a {
+    font-weight: bold;
+    color: #282626;
+}
+
+.navBar-list li {
+    list-style: none;
+    margin-top: 25px;
+}
+
+.navBar-list a {
+    color: #282626;
+    text-decoration: none;
+}
+
+.navBar-list .desactive::after {
+    background: #282626;
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    transition: width .3s;
+}
+
+.navBar-list .desactive:hover::after {
+    width: 80%;
+
+}
+
+.navBar-list .desactive:hover {
+    font-weight: bold;
+}
+
+/***********************************NAVBAR*************************************************/
+
+/***********************************search*************************************************/
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+input {
+    border: none;
+    outline: none;
+    flex: 1;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding: 5px;
+}
+
+.btn-search {
+    background-color: #f3e7ff !important;
+    width: 40px;;
+    padding: 5px;
+    border: none;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.btn-search:focus {
+    box-shadow: none;
+}
+
+.search-login {
+    margin-right: 100px;
+    justify-content: space-between;
+}
+
+/***********************************search*************************************************/
+
+/***********************************DROPDOWN*************************************************/
+
+
+/* Estilo para o botão do dropdown */
+.dropbtn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Estilo para o título do dropdown */
+.dropdown-title {
+    font-size: 16px;
+    color: #282626;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+/* Estilo para a seta indicadora */
+.arrow {
+    font-size: 18px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+/* Estilo para o contêiner dos dropdowns */
+.dropdown-container {
+    margin-top: 15px;
+    display: flex; /* Exibir os dropdowns lado a lado */
+    justify-content: space-between; /* Espaço igual entre os dropdowns */
+}
+
+/* Estilo para cada dropdown */
+.dropdown {
+    position: relative;
+    width: 100px;
+    flex: 1; /* Distribuir espaço igualmente entre os dropdowns */
+    margin-right: 20px; /* Espaço entre os dropdowns */
+}
+
+/* Estilo para o conteúdo do dropdown (as opções) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    background-color: #f3e7ff; /* Cor de fundo para as opções */
+    border-radius: 5px; /* Borda arredondada para as opções */
+    padding: 10px 0; /* Espaçamento interno para as opções */
+}
+
+/* Estilo para as opções do dropdown */
+.dropdown-content a {
+    color: #282626;
+    padding: 10px 20px; /* Espaçamento interno para as opções */
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+    margin: 5px 0; /* Espaçamento vertical entre as opções */
+}
+
+/* Estilo quando o cursor está sobre as opções */
+.dropdown-content a:hover {
+    background-color: #fcfaff;
+}
+
+/* Exibir o dropdown quando o botão é clicado */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/***********************************DROPDOWN*************************************************/
+
+
+@media(max-width:750px) {
+    .show-navBar {
+
+        width: 100%;
+
+    }
+
+    .hide-navBar {
+        display: flex;
+        position: fixed;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        top: 0;
+        right: 0;
+        height: 0;
+        width: 0;
+        transition: all 0s;
+    }
+
+    .menu-icon {
+        font-size: 45px;
+    }
+
+}
