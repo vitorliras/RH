@@ -35,12 +35,23 @@ function Login() {
 
               <div className="login-wrap-form-title">
                 <span className="login100-form-title">
-                  {modoCadastro ? 'Cadastro' : 'Member Login'}
+                  {modoCadastro ? 'Cadastro' : 'Login'}
                 </span>
               </div>
-
+              
+              
               <div className='login-inputs-form'>
                 <div className="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                {modoCadastro ? 
+                <input
+                    className="input100"
+                    type="text"
+                    name="email"
+                    placeholder="Email / CPF"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  /> 
+                  : 
                   <input
                     className="input100"
                     type="text"
@@ -48,19 +59,38 @@ function Login() {
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                  />
+                  /> 
+                  }
+                  
                   <span className="focus-input100"></span>
                   <span className="symbol-input100">
                     <i className="fa fa-envelope" aria-hidden="true"></i>
                   </span>
                 </div>
 
+                {modoCadastro && (
+                  <div className="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                  <input
+                    className="input100"
+                    type="text"
+                    name="cpf"
+                    placeholder="CPF"
+                    value={cpf}
+                    onChange={(e) => setCpf(e.target.value)}
+                  />
+                  <span className="focus-input100"></span>
+                  <span className="symbol-input100">
+                    <i className="fa fa-envelope" aria-hidden="true"></i>
+                  </span>
+                </div>
+                )}
+
                 <div className="wrap-input100 validate-input" data-validate="Password is required">
                   <input
                     className="input100"
                     type="password"
                     name="pass"
-                    placeholder="Password"
+                    placeholder="Senha"
                     value={senha}
                     onChange={(e) => setSenha(e.target.value)}
                   />
@@ -69,6 +99,23 @@ function Login() {
                     <i className="fa fa-lock" aria-hidden="true"></i>
                   </span>
                 </div>
+
+                {modoCadastro && (
+                  <div className="wrap-input100 validate-input" data-validate="Password is required">
+                  <input
+                    className="input100"
+                    type="password"
+                    name="pass"
+                    placeholder="Confirmar Senha"
+                    value={confirmarSenha}
+                    onChange={(e) => setConfirmarSenha(e.target.value)}
+                  />
+                  <span className="focus-input100"></span>
+                  <span className="symbol-input100">
+                    <i className="fa fa-lock" aria-hidden="true"></i>
+                  </span>
+                </div>
+                )}
 
 
               <div className="container-login100-form-btn">
