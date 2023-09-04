@@ -144,6 +144,10 @@
       width: 100%;
   }
 
+  .subtitle-login{
+    font-size: 18px !important;
+    color: #ffffff8f;
+  }
 
   /*---------------------------------------------*/
   .login-inputs-form{

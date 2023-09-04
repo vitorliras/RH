@@ -37,6 +37,10 @@ function Login() {
                 <span className="login100-form-title">
                   {modoCadastro ? 'Cadastro' : 'Login'}
                 </span>
+                <br/>
+                <span className="login100-form-title subtitle-login">
+                  {modoCadastro ? '' : 'Faça o login para acessar a plataforma'}
+                </span>
               </div>
               
               
@@ -47,7 +51,7 @@ function Login() {
                     className="input100"
                     type="text"
                     name="email"
-                    placeholder="Email / CPF"
+                    placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   /> 
@@ -56,7 +60,7 @@ function Login() {
                     className="input100"
                     type="text"
                     name="email"
-                    placeholder="Email"
+                    placeholder="Email / CPF"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   /> 
