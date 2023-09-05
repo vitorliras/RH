@@ -1,7 +1,7 @@
 import React from 'react'
 import { RiArrowDownSLine } from 'react-icons/ri'
 
-function Search() {
+function DropDownsMenuHeader() {
     return (
         <div>
             <div className="dropdown-container">
@@ -36,4 +36,4 @@ function Search() {
     )
 }
 
-export default Search
+export default DropDownsMenuHeader

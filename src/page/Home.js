@@ -10,33 +10,7 @@ function Home() {
             <div id='home' className='container' >
 
                 <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
-                <h1>HOME</h1>
+               
 
             </div>
         </>

@@ -2,7 +2,7 @@ import React from 'react'
 import { FaSearch, FaUser } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import NavBar from './NavBar'
-import Search from './Search'
+import DropDownsMenuHeader from './DropDownMenuHeader'
 
 
 function Header() {
@@ -17,7 +17,7 @@ function Header() {
                 <Link to="/"><img src='../logo192.png' alt='' height='60' className='w-20' ></img></Link>
             </div>
 
-            <Search/>
+            <DropDownsMenuHeader/>
 
             <div className='d-flex search-login '>
                 <div className="search-bar mx-4">
