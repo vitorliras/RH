@@ -4,6 +4,8 @@
     padding: 20px;
     display: flex;
     justify-content: space-between;
+    height: 90px;
+    align-items: center;
 }
 
 .button-login {
@@ -34,6 +36,11 @@
     justify-content: space-between;
 }
 
+.logoHeader {
+    height: 120px !important;
+}
+
+
 /***********************************HEADER*************************************************/
 
 
@@ -55,10 +62,8 @@
 
 .logoNavbar {
     margin-top: 65px;
-    margin-left: 20%;
-    margin-bottom: 10px;
+    margin-left: 6%;
     cursor: pointer;
-
 }
 
 .hide-navBar {
@@ -82,7 +87,7 @@
     top: 0;
     left: 0;
     background-color: #f3e7ff;
-    opacity: 0.95;
+    /* opacity: 0.95; */
     height: 100%;
     width: 20%;
     transition: all 0.5s;
@@ -134,9 +139,11 @@
 
 .search-bar {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     border-radius: 30px;
     padding: 5px;
+    height: 50px;
+    margin-top: 5px;
 }
 
 input {

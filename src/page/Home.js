@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../Components/Header';
+import Slide from '../Components/Slide';
 
 function Home() {
     return (
@@ -9,7 +10,8 @@ function Home() {
 
             <div id='home' className='container' >
 
-                <h1>HOME</h1>
+                {/* <h1>HOME</h1> */}
+                <Slide/>
                
 
             </div>

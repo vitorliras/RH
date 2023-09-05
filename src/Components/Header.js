@@ -14,7 +14,7 @@ function Header() {
 
             <div className='header-navbar-logo'>
                 <NavBar />
-                <Link to="/"><img src='../logo192.png' alt='' height='60' className='w-20' ></img></Link>
+                <Link to="/"><img src='../logoRh.png' alt='' className='logoHeader' ></img></Link>
             </div>
 
             <DropDownsMenuHeader/>

@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './stylesheets/header.css'
 import './stylesheets/login.css'
+import './stylesheets/slide.css'
 
 import Home from './page/Home';
 import Calendar from './page/Calendar';

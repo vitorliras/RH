@@ -22,7 +22,7 @@ function NavBar() {
             }
 
             <ul className={`${showNavBar ? 'show-navBar' : 'hide-navBar'} n-box1 `}>
-                <Link to="/"><img src='../logo192.png' alt='' height='120' className='w-50 logoNavbar' ></img></Link>
+                <Link to="/"><img src='../logoRh.png' alt='' height='200' className='logoNavbar' ></img></Link>
 
                 <div className='navBar-list'>
                     <li className={`${path === '/MeusDados' && 'active'}  ${path !== '/MeusDados' && 'desactive'}`}><Link to="/MeusDados">Meus Dados</Link></li>
