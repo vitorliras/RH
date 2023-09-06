@@ -8,7 +8,7 @@ function Home() {
             <Header />
 
 
-            <div id='home' className='container' >
+            <div id='home' className='' >
 
                 {/* <h1>HOME</h1> */}
                 <Slide/>

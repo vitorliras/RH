@@ -1,69 +1,58 @@
 import React, { useState, useEffect } from 'react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Importe os ícones desejados
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const slidesData = [
   {
-    text: 'Slide 1 Text',
-    imageUrl: 'logo512.png',
+    text: 'Slide test 1',
+    bgColor: '#FF5733',
   },
   {
-    text: 'Slide 2 Text',
-    imageUrl: 'logo512.png',
+    text: 'Slide test 2',
+    bgColor: '#33FF57',
   },
   {
-    text: 'Slide 3 Text',
-    imageUrl: 'logo512.png',
+    text: 'Slide test 3',
+    bgColor: '#5733FF',
   },
 ];
 
 const Slide = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      // Avança para o próximo slide
-      setCurrentSlide((prevSlide) =>
-        prevSlide === slidesData.length - 1 ? 0 : prevSlide + 1
-      );
-    }, 3000);
-
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
-
   const goToPreviousSlide = () => {
-    setCurrentSlide((prevSlide) =>
-      prevSlide === 0 ? slidesData.length - 1 : prevSlide - 1
-    );
+    setCurrentSlide((prevSlide) => (prevSlide === 0 ? slidesData.length - 1 : prevSlide - 1));
   };
 
   const goToNextSlide = () => {
-    setCurrentSlide((prevSlide) =>
-      prevSlide === slidesData.length - 1 ? 0 : prevSlide + 1
-    );
+    setCurrentSlide((prevSlide) => (prevSlide === slidesData.length - 1 ? 0 : prevSlide + 1));
   };
+
+  // Adicione o temporizador para avançar automaticamente a cada 5 segundos
+  useEffect(() => {
+    const timer = setInterval(goToNextSlide, 5000);
+
+    return () => {
+      clearInterval(timer); // Limpe o temporizador ao desmontar o componente
+    };
+  }, []);
 
   return (
     <div className="slide-container">
-      <div className="slide-nav" onClick={goToPreviousSlide}>
-        <FaArrowLeft />
+      <div className="slide" style={{ backgroundColor: slidesData[currentSlide].bgColor }}>
+        <h2 className="slide-text">{slidesData[currentSlide].text}</h2>
       </div>
-      {slidesData.map((slide, index) => (
-        <div
-          key={index}
-          className={`slide ${index === currentSlide ? 'active-slide' : ''}`}
-        >
-          <img className='img-slide' src={slide.imageUrl} alt={`Slide ${index + 1}`} />
-          <p className='slide-text'>{slide.text}</p>
-          <button className='btn-slide'>Botão</button>
-        </div>
-      ))}
-      <div className="slide-nav" onClick={goToNextSlide}>
-        <FaArrowRight />
+      <div className="navigation">
+        <button className="nav-button prev" onClick={goToPreviousSlide}>
+          <FaArrowLeft />
+        </button>
+        <button className="nav-button next" onClick={goToNextSlide}>
+          <FaArrowRight />
+        </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Slide;
+
+
