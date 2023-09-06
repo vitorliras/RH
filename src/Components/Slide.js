@@ -3,56 +3,75 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const slidesData = [
   {
-    text: 'Slide test 1',
-    bgColor: '#FF5733',
+    titulo: 'Bem-vindo!',
+    subTitulo: 'Modernize, simplifique a comunicação interna e alinhe seus colaboradores com a ReasyH.',
+    buttonLabel: 'Comprar',
+    imageUrl: '../logoRh.png',
   },
   {
-    text: 'Slide test 2',
-    bgColor: '#33FF57',
+    titulo: 'Quem nós somos',
   },
-  {
-    text: 'Slide test 3',
-    bgColor: '#5733FF',
-  },
+  // {
+  //   text: 'Explore nosso serviço',
+  //   imageUrl: 'url_da_imagem3.jpg',
+  // },
 ];
 
 const Slide = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const goToPreviousSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === 0 ? slidesData.length - 1 : prevSlide - 1));
-  };
-
-  const goToNextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === slidesData.length - 1 ? 0 : prevSlide + 1));
-  };
-
-  // Adicione o temporizador para avançar automaticamente a cada 5 segundos
   useEffect(() => {
-    const timer = setInterval(goToNextSlide, 5000);
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slidesData.length);
+    }, 10000);
 
-    return () => {
-      clearInterval(timer); // Limpe o temporizador ao desmontar o componente
-    };
+    return () => clearInterval(interval);
   }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % slidesData.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === 0 ? slidesData.length - 1 : prevSlide - 1
+    );
+  };
 
   return (
     <div className="slide-container">
-      <div className="slide" style={{ backgroundColor: slidesData[currentSlide].bgColor }}>
-        <h2 className="slide-text">{slidesData[currentSlide].text}</h2>
-      </div>
-      <div className="navigation">
-        <button className="nav-button prev" onClick={goToPreviousSlide}>
-          <FaArrowLeft />
-        </button>
-        <button className="nav-button next" onClick={goToNextSlide}>
-          <FaArrowRight />
-        </button>
+      <div className="slide">
+        <div className="content">
+          <div className="left-content">
+            {slidesData[currentSlide].titulo && (
+              <p className="slide-text">{slidesData[currentSlide].titulo}</p>
+            )}
+            {slidesData[currentSlide].subTitulo && (
+              <p className="slide-text-subtitle">{slidesData[currentSlide].subTitulo}</p>
+            )}
+            {slidesData[currentSlide].buttonLabel && (
+              <button className="btn-slide">{slidesData[currentSlide].buttonLabel}</button>
+            )}
+          </div>
+          <div className="right-content">
+            {slidesData[currentSlide].imageUrl && (
+              <div className="logo-circle">
+                <img src={slidesData[currentSlide].imageUrl} alt="Imagem do Slide" />
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="navigation">
+          <button className="nav-button prev" onClick={prevSlide}>
+            <FaArrowLeft />
+          </button>
+          <button className="nav-button next" onClick={nextSlide}>
+            <FaArrowRight />
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Slide;
-
-

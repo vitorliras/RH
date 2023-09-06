@@ -32,7 +32,7 @@
     font-weight: bold;
 }
   /*---------------------------------------------*/
-  .login100-form-btn {
+  .login-form-btn {
       outline: none !important;
       border: none;
       background: transparent;
@@ -72,7 +72,7 @@
       margin: 0 auto;
   }
 
-  .container-login100 {
+  .container-login {
       width: 100%;
       min-height: 100vh;
       display: -webkit-box;
@@ -91,7 +91,7 @@
       background: linear-gradient(-135deg, #c850c0, #4158d0);
   }
 
-  .wrap-login100 {
+  .wrap-login {
       width: 960px;
       background: #fff;
       border-radius: 10px;
@@ -108,7 +108,7 @@
   }
   /*------------------------------------------------------------------
   [  ]*/
-  .login100-pic {
+  .login-pic {
       width: 50%;
       height: 100%;
       /* text-align: center; */
@@ -119,7 +119,7 @@
       background-image: '../logoRh.png';
   }
 
-  .login100-pic img {
+  .login-pic img {
       max-width: 100%;
       margin-top: 0;
   }
@@ -128,7 +128,7 @@
   /*------------------------------------------------------------------
   [  ]*/
   
-  .login100-form {
+  .login-form {
       width: 50%;
       height: 100%;
   }
@@ -140,17 +140,12 @@
     padding-top: 30px;
   }
 
-  .login100-form-title {
+  .login-form-title {
       font-family: Poppins-Bold;
       font-size: 24px;
       color: #FFF;
       text-align: center;
       width: 100%;
-  }
-
-  .subtitle-login{
-    font-size: 18px !important;
-    color: #ffffff8f;
   }
 
   /*---------------------------------------------*/
@@ -162,14 +157,14 @@
     text-align: center;
   }
 
-  .wrap-input100 {
+  .wrap-input-login {
       position: relative;
       width: 100%;
       z-index: 1;
       margin-bottom: 10px;
   }
 
-  .input100 {
+  .input-login {
       font-family: Poppins-Medium;
       font-size: 15px;
       line-height: 1.5;
@@ -186,7 +181,7 @@
 
   /*------------------------------------------------------------------
   [ Focus ]*/
-  .focus-input100 {
+  .focus-input-login {
       display: block;
       position: absolute;
       border-radius: 25px;
@@ -199,7 +194,7 @@
       color: #f3e7ff;
   }
 
-  .input100:focus+.focus-input100 {
+  .input-login:focus+.focus-input-login {
       -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
       animation: anim-shadow 0.5s ease-in-out forwards;
   }
@@ -218,7 +213,7 @@
       }
   }
 
-  .symbol-input100 {
+  .symbol-input-login {
       font-size: 15px;
 
       display: -webkit-box;
@@ -243,14 +238,14 @@
       transition: all 0.4s;
   }
 
-  .input100:focus+.focus-input100+.symbol-input100 {
+  .input-login:focus+.focus-input-login+.symbol-input-login {
       color: #57b846;
       padding-left: 28px;
   }
 
   /*------------------------------------------------------------------
   [ Button ]*/
-  .container-login100-form-btn {
+  .container-login-form-btn {
       width: 100%;
       display: -webkit-box;
       display: -webkit-flex;
@@ -259,7 +254,7 @@
       padding-top: 20px;
   }
 
-  .login100-form-btn {
+  .login-form-btn {
       font-family: Montserrat-Bold;
       font-size: 15px;
       line-height: 1.5;
@@ -285,7 +280,7 @@
       transition: all 0.4s;
   }
 
-  /* .login100-form-btn:hover {
+  /* .login-form-btn:hover {
       background: #333333;
   } */
 
@@ -295,15 +290,15 @@
   [ Responsive ]*/
 
   @media (max-width: 992px) {
-      .wrap-login100 {
+      .wrap-login {
           /* padding: 100px 80px 33px 80px; */
       }
 
-      .login100-pic {
+      .login-pic {
           display: none;
       }
 
-      .login100-form {
+      .login-form {
           width: 100%;
       }
   }

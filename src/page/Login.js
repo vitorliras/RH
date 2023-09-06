@@ -22,33 +22,33 @@ function Login() {
     <div>
 
       <div className="limiter">
-        <div className="container-login100">
-          <div className="wrap-login100">
+        <div className="container-login">
+          <div className="wrap-login">
             {/* <div className='test'></div> */}
             {/* <div className='test1'></div> */}
 
-            <div className="login100-pic js-tilt" data-tilt>
+            <div className="login-pic js-tilt" data-tilt>
               <img src='../logoRh.png' alt="IMG" />
             </div>
 
-            <form className="login100-form validate-form">
+            <form className="login-form validate-form">
 
               <div className="login-wrap-form-title">
-                <span className="login100-form-title">
+                <span className="login-form-title">
                   {modoCadastro ? 'Cadastro' : 'Login'}
                 </span>
                 <br/>
-                <span className="login100-form-title subtitle-login">
+                <span className="login-form-title subtitle-login">
                   {modoCadastro ? '' : 'Faça o login para acessar a plataforma'}
                 </span>
               </div>
               
               
               <div className='login-inputs-form'>
-                <div className="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                <div className="wrap-input-login validate-input" data-validate="Valid email is required: ex@abc.xyz">
                 {modoCadastro ? 
                 <input
-                    className="input100"
+                    className="input-login"
                     type="text"
                     name="email"
                     placeholder="Email"
@@ -57,7 +57,7 @@ function Login() {
                   /> 
                   : 
                   <input
-                    className="input100"
+                    className="input-login"
                     type="text"
                     name="email"
                     placeholder="Email / CPF"
@@ -66,64 +66,64 @@ function Login() {
                   /> 
                   }
                   
-                  <span className="focus-input100"></span>
-                  <span className="symbol-input100">
+                  <span className="focus-input-login"></span>
+                  <span className="symbol-input-login">
                     <i className="fa fa-envelope" aria-hidden="true"></i>
                   </span>
                 </div>
 
                 {modoCadastro && (
-                  <div className="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                  <div className="wrap-input-login validate-input" data-validate="Valid email is required: ex@abc.xyz">
                   <input
-                    className="input100"
+                    className="input-login"
                     type="text"
                     name="cpf"
                     placeholder="CPF"
                     value={cpf}
                     onChange={(e) => setCpf(e.target.value)}
                   />
-                  <span className="focus-input100"></span>
-                  <span className="symbol-input100">
+                  <span className="focus-input-login"></span>
+                  <span className="symbol-input-login">
                     <i className="fa fa-envelope" aria-hidden="true"></i>
                   </span>
                 </div>
                 )}
 
-                <div className="wrap-input100 validate-input" data-validate="Password is required">
+                <div className="wrap-input-login validate-input" data-validate="Password is required">
                   <input
-                    className="input100"
+                    className="input-login"
                     type="password"
                     name="pass"
                     placeholder="Senha"
                     value={senha}
                     onChange={(e) => setSenha(e.target.value)}
                   />
-                  <span className="focus-input100"></span>
-                  <span className="symbol-input100">
+                  <span className="focus-input-login"></span>
+                  <span className="symbol-input-login">
                     <i className="fa fa-lock" aria-hidden="true"></i>
                   </span>
                 </div>
 
                 {modoCadastro && (
-                  <div className="wrap-input100 validate-input" data-validate="Password is required">
+                  <div className="wrap-input-login validate-input" data-validate="Password is required">
                   <input
-                    className="input100"
+                    className="input-login"
                     type="password"
                     name="pass"
                     placeholder="Confirmar Senha"
                     value={confirmarSenha}
                     onChange={(e) => setConfirmarSenha(e.target.value)}
                   />
-                  <span className="focus-input100"></span>
-                  <span className="symbol-input100">
+                  <span className="focus-input-login"></span>
+                  <span className="symbol-input-login">
                     <i className="fa fa-lock" aria-hidden="true"></i>
                   </span>
                 </div>
                 )}
 
 
-              <div className="container-login100-form-btn">
-                <button className="login100-form-btn" onClick={modoCadastro ? handleCadastro : handleLogin}>
+              <div className="container-login-form-btn">
+                <button className="login-form-btn" onClick={modoCadastro ? handleCadastro : handleLogin}>
                   {modoCadastro ? 'Cadastrar' : 'Login'}
                 </button>
               </div>

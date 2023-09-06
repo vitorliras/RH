@@ -1,3 +1,5 @@
+/* Slide.css */
+
 .slide-container {
   display: flex;
   flex-direction: column;
@@ -12,35 +14,143 @@
   align-items: center;
   justify-content: center;
   width: 80%;
-  max-width: 800px; /* Aumente a largura máxima do slide */
-  height: 60%; /* Aumente a altura do slide */
-  background-color: #FF5733;
+  max-width: 800px;
+  height: 60%;
   border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
   transition: background-color 0.3s ease;
+  position: relative;
 }
 
 .slide-text {
-  font-size: 24px;
+  font-size: 32px; /* Aumente o tamanho do texto ainda mais */
+  color: #000;
+  text-align: center;
+  font-weight: bold;
+  margin: 16px 0; /* Reduza um pouco o espaçamento vertical */
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px; /* Adicione um espaçamento entre o conteúdo e as bordas do slide */
+}
+
+.left-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.btn-slide {
+  background-color: #007BFF;
   color: #fff;
-  margin: 0;
+  padding: 12px 24px;
+  font-size: 24px; /* Aumente um pouco o tamanho da fonte do botão */
+  border: none;
+  border-radius: 55px;
+  cursor: pointer;
+  margin-top: 16px; /* Reduza um pouco o espaçamento entre o botão e o texto */
+}
+
+.btn-slide:hover {
+  background-color: #007bff92;
+
+}
+.right-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-circle {
+  width: 300px; /* Aumente o tamanho do círculo ainda mais */
+  height: 300px; /* Aumente o tamanho do círculo ainda mais */
+  background: linear-gradient(45deg, #3abfc3, #ccbd61);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.logo-circle img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .navigation {
-  margin-top: 20px;
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  transform: translateY(-50%);
+  width: 120%;
+  justify-content: space-between;
+  padding: 0 10px;
 }
 
 .nav-button {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 32px; /* Aumente ainda mais o tamanho das setas de navegação */
+  margin: 0;
+  padding: 0;
 }
 
-.prev {
-  margin-right: 10px;
+.prev{
+  color: #d8d8d8;
 }
 
-.next {
-  margin-left: 10px;
+.next{
+  color: #d8d8d8;
+}
+
+.prev:hover{
+  color: #000;
+}
+
+.next:hover{
+  color: #000;
+}
+
+
+@media screen and (max-width: 768px) {
+  .slide {
+    width: 95%;
+  }
+
+  .slide-text {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .content {
+    flex-direction: column; /* Empilhe os elementos verticalmente */
+    align-items: center;
+    text-align: center;
+  }
+
+  .navigation {
+    width: 100%;
+  }
+
+  .btn-slide-slide {
+    font-size: 20px;
+    margin-top: 10px; /* Espaçamento inferior entre o texto e o botão */
+    margin-top: 15px;
+
+  }
+
+  .logo-circle {
+    width: 200px; /* Tamanho de círculo menor em telas menores */
+    height: 200px;
+    margin-top: 35px;
+  }
 }
