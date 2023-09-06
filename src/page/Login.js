@@ -28,7 +28,7 @@ function Login() {
             {/* <div className='test1'></div> */}
 
             <div className="login100-pic js-tilt" data-tilt>
-              <img src='../logoRh.png' alt="IMG" />
+              <img className='logo-login' src='../logoRh.png' alt="IMG" />
             </div>
 
             <form className="login100-form validate-form">
