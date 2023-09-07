@@ -19,7 +19,7 @@ function Header() {
 
             <DropDownsMenuHeader/>
 
-            <div className='d-flex search-login '>
+            <div className='d-flex search-login'>
                 <div className="search-bar mx-4">
                     <input type="text" placeholder="Pesquisar..." />
                     <button className='btn-search' type="submit">

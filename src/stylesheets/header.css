@@ -252,6 +252,13 @@ input {
 /***********************************DROPDOWN*************************************************/
 
 
+@media(max-width:926px) {
+    .search-bar {
+        display: none !important;
+    }
+
+}
+
 @media(max-width:750px) {
     .show-navBar {
 
@@ -275,6 +282,26 @@ input {
 
     .menu-icon {
         font-size: 45px;
+    }
+
+}
+
+@media(max-width:655px) {
+    .dropdown-container {
+        display: none !important;
+    }
+    .search-login{
+        margin: 0;
+    }
+    .header-navbar-logo{
+        width: 330px;
+    }
+
+}
+
+@media(max-width:500px) {
+    .logoHeader{
+        display: none;
     }
 
 }
