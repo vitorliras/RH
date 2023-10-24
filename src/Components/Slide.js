@@ -17,8 +17,11 @@ const slidesData = [
   // },
 ];
 
-const Slide = () => {
+function Slide ({ userName }) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  // if(userName){
+  //     slidesData[0].titulo = "Bem-vindo! "+ userName;
+  // }
 
   useEffect(() => {
     const interval = setInterval(() => {

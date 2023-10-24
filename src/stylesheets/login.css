@@ -178,6 +178,11 @@
       padding: 0 30px 0 68px;
   }
 
+  .error-message {
+    color: red; /* Define a cor do texto como vermelho */
+    font-size: 14px; /* Define o tamanho da fonte como 14 pixels */
+  }
+
 
   /*------------------------------------------------------------------
   [ Focus ]*/

@@ -1,22 +1,25 @@
-import React from 'react'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../Components/Header';
 import Slide from '../Components/Slide';
 
 function Home() {
-    return (
-        <>
-            <Header />
+  const location = useLocation();
+  const userName = location.state && location.state.userName;
 
-
-            <div id='home' className='' >
-
-                {/* <h1>HOME</h1> */}
-                <Slide/>
-               
-
-            </div>
-        </>
-    )
+  return (
+    <>
+      <Header userName={userName} /> {/* Passe o nome do usuário para o componente Header */}
+      <div id="home" className="">
+        <Slide userName={userName}  />
+      </div>
+    </>
+  );
 }
 
-export default Home
+export default Home;
+
+
+
+
+

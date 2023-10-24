@@ -133,6 +133,29 @@
     font-weight: bold;
 }
 
+/* Adicione estilos para o botão de logout */
+.logout-button {
+    background-color: #ff5f5f; /* Vermelho claro */
+    color: #fff; /* Texto branco */
+    border: none;
+    border-radius: 25px;
+    font-weight: 700;
+    /* width: 100%; */
+    width: 180px;
+    height: 35px;
+    margin-top: 13px;
+    justify-content: center;
+    padding-top: 7px;
+    margin-right: 10%;
+    text-decoration: none;
+    align-items: start;
+    cursor: pointer !important;
+  }
+  
+  .logout-button:hover {
+    background-color: #c52c2c; /* Vermelho mais escuro no hover */
+  }
+
 /***********************************NAVBAR*************************************************/
 
 /***********************************search*************************************************/
