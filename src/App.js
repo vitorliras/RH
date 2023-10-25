@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 
 import './stylesheets/header.css'
@@ -20,22 +20,22 @@ import Login from './page/Login';
 
 
 function App() {
+  
   return (
     <div className="App">
       <BrowserRouter>
      
         <Routes>
   
-              <Route path='/'  element={<Home/>}/>
-              <Route path='/CalendarioAnual' element={<Calendar />}/>
-              <Route path="/PlanoCarreira" element={<CarrerPlan />}/>
-              <Route path='/Financeiro' element={<Finance />}/>
-              <Route path='/MeusDados' element={<MyProfile />}/>
-              <Route path="/MinhaEquipe" element={<MyTeam />}/>
-              <Route path='/ComunicadosInternos' element={<InternComunicate />}/>
-              <Route path='/MinhasSolicitacoes' element={<MySolicitacion />}/>
+              <Route path='/:userName?'  element={<Home />}/>
+              <Route path='/CalendarioAnual/:userName?' element={<Calendar />}/>
+              <Route path="/PlanoCarreira/:userName?" element={<CarrerPlan />}/>
+              <Route path='/Financeiro/:userName?' element={<Finance />}/>
+              <Route path='/MeusDados/:userName?' element={<MyProfile />}/>
+              <Route path="/MinhaEquipe/:userName?" element={<MyTeam />}/>
+              <Route path='/ComunicadosInternos/:userName?' element={<InternComunicate />}/>
+              <Route path='/MinhasSolicitacoes/:userName?' element={<MySolicitacion />}/>
               <Route path='/Login' element={<Login />}/>
-
   
         </Routes>
   

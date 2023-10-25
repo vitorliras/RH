@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { addDoc,useDoc, getDoc, collection, doc, setDoc } from "firebase/firestore";
 import { auth, firestore } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import Swal from 'sweetalert2';
+
 
 
 const usersCollection = collection(firestore, 'users');
@@ -39,34 +41,37 @@ function Login() {
 
   const handleLogin = async (e) => {
     try {
-      e.preventDefault()
+      e.preventDefault();
       signInWithEmailAndPassword(auth, email, senha)
         .then(async (userCredential) => {
           if (userCredential.user) {
             const userId = userCredential.user.uid;
             const userDocRef = doc(firestore, 'users', userId);
-            
+  
             const userDoc = await getDoc(userDocRef);
             if (userDoc.exists()) {
               const userData = userDoc.data();
               const userName = userData.name;
               if (userName) {
                 // Redirecione para a página "Home" com o nome do usuário
-                navigate('/', { state: { userName } });
+                navigate(`/${userName}`);
               } else {
                 // Redirecione para a página "Home" sem o nome do usuário
                 navigate('/');
               }
-
-              // Redirecione para a página "Home"
-              // navigate('/');
-            } else {
-              console.log('Usuário não encontrado no Firestore');
             }
-          }
+          } 
         })
         .catch((error) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Erro no Login',
+            text: 'Usuário ou senha incorretos. Por favor, verifique suas credenciais.',
+            confirmButtonColor: '#1c9ed2', // Cor do botão de confirmação
+
+          });
           console.log(error);
+          navigate('/Login');
         });
     } catch (error) {
       console.error(error);
@@ -124,6 +129,17 @@ function Login() {
       console.error(error);
     }
   };
+  const clearFields = () => {
+  setEmail('');
+  setSenha('');
+  setConfirmarSenha('');
+  setNome('');
+};
+
+const handleCadastroClick = () => {
+  clearFields(); // Chama a função para limpar os campos
+  setModoCadastro(!modoCadastro);  // Altera o estado "modoCadastro" para true
+};
   return (
     <div>
       <div className="limiter">
@@ -247,7 +263,7 @@ function Login() {
                 )}
 
                 <div className="text-center p-t-136">
-                  <a className="txt2 a-login" onClick={() => setModoCadastro(!modoCadastro)}>
+                  <a className="txt2 a-login" onClick={handleCadastroClick}>
                     {modoCadastro ? 'Já tem uma conta? Faça login.' : 'Não tem uma conta? Cadastre-se.'}
                     <i className="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                   </a>

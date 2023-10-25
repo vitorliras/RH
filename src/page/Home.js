@@ -1,17 +1,18 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import Header from '../Components/Header';
 import Slide from '../Components/Slide';
 
 function Home() {
-  const location = useLocation();
-  const userName = location.state && location.state.userName;
+  const { userName } = useParams();
 
+  
   return (
     <>
-      <Header userName={userName} /> {/* Passe o nome do usuário para o componente Header */}
+        <Header userName={userName != "null" || !userName ? userName : ""} />
+
       <div id="home" className="">
-        <Slide userName={userName}  />
+        <Slide />
       </div>
     </>
   );

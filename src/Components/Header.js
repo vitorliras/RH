@@ -18,14 +18,13 @@ function Header({ userName }) {
 
             auth.signOut();
             navigate('/', { state:  null });
-
         }
     }
     return (
       <div className="header">
         <div className="header-navbar-logo">
-          <NavBar />
-          <Link to="/">
+          <NavBar userName={userName} />
+          <Link to={`/${userName}`}>
             <img src="../logoRh.png" alt="" className="logoHeader" />
           </Link>
         </div>
