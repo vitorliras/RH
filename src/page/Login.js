@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { addDoc,useDoc, getDoc, collection, doc, setDoc } from "firebase/firestore";
+import { addDoc, useDoc, getDoc, collection, doc, setDoc } from "firebase/firestore";
 import { auth, firestore } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import Swal from 'sweetalert2';
@@ -14,10 +14,11 @@ function Login() {
   const [senha, setSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
   const [nome, setNome] = useState('');
+  const [cpf, setCpf] = useState('');
   const [modoCadastro, setModoCadastro] = useState(false);
   const [senhaError, setSenhaError] = useState('');
   const [ConfirmarsenhaError, setConfirmarsetSenhaError] = useState('');
- 
+
 
 
   // const handleLogin = async () => {
@@ -47,7 +48,7 @@ function Login() {
           if (userCredential.user) {
             const userId = userCredential.user.uid;
             const userDocRef = doc(firestore, 'users', userId);
-  
+
             const userDoc = await getDoc(userDocRef);
             if (userDoc.exists()) {
               const userData = userDoc.data();
@@ -60,7 +61,7 @@ function Login() {
                 navigate('/');
               }
             }
-          } 
+          }
         })
         .catch((error) => {
           Swal.fire({
@@ -85,10 +86,10 @@ function Login() {
     } else {
       setSenhaError('');
     }
-    if(confirmarSenha != ''){
+    if (confirmarSenha != '') {
       if (senha !== confirmarSenha) {
         setConfirmarsetSenhaError('A senha e a confirmação de senha não correspondem.');
-      }else{
+      } else {
         setConfirmarsetSenhaError('');
       }
     }
@@ -98,11 +99,11 @@ function Login() {
     try {
       e.preventDefault();
       validatePassword();
-  
+
       if (senhaError || ConfirmarsenhaError) {
         return;
       }
-  
+
       createUserWithEmailAndPassword(auth, email, senha)
         .then(async (userCredential) => {
           if (userCredential.user) {
@@ -116,7 +117,7 @@ function Login() {
         .catch((error) => {
           console.log(error);
         });
-  
+
       alert('Cadastro realizado com sucesso! Faça o login.');
       setEmail('');
       setSenha('');
@@ -124,22 +125,22 @@ function Login() {
       setNome('');
       setModoCadastro(false);
       navigate('/Login');
-  
+
     } catch (error) {
       console.error(error);
     }
   };
   const clearFields = () => {
-  setEmail('');
-  setSenha('');
-  setConfirmarSenha('');
-  setNome('');
-};
+    setEmail('');
+    setSenha('');
+    setConfirmarSenha('');
+    setNome('');
+  };
 
-const handleCadastroClick = () => {
-  clearFields(); // Chama a função para limpar os campos
-  setModoCadastro(!modoCadastro);  // Altera o estado "modoCadastro" para true
-};
+  const handleCadastroClick = () => {
+    clearFields(); // Chama a função para limpar os campos
+    setModoCadastro(!modoCadastro);  // Altera o estado "modoCadastro" para true
+  };
   return (
     <div>
       <div className="limiter">
@@ -205,6 +206,23 @@ const handleCadastroClick = () => {
                   </div>
                 )}
 
+                {modoCadastro && (
+                  <div className="wrap-input-login validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                    <input
+                      className="input-login"
+                      type="text"
+                      name="Cpf"
+                      placeholder="CPF"
+                      value={cpf}
+                      onChange={(e) => setCpf(e.target.value)}
+                    />
+                    <span className="focus-input-login"></span>
+                    <span className="symbol-input-login">
+                      <i className="fa fa-envelope" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                )}
+
                 <div className="wrap-input-login validate-input" data-validate="Password is required">
                   <input
                     className="input-login"
@@ -242,6 +260,8 @@ const handleCadastroClick = () => {
                     </span>
                   </div>
                 )}
+
+
 
                 {ConfirmarsenhaError && (
                   <div className="error-message">{ConfirmarsenhaError}</div>
