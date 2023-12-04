@@ -72,7 +72,7 @@ function Login() {
 
           });
           console.log(error);
-          navigate('/Login');
+          navigate('/');
         });
     } catch (error) {
       console.error(error);
@@ -124,7 +124,7 @@ function Login() {
       setConfirmarSenha('');
       setNome('');
       setModoCadastro(false);
-      navigate('/Login');
+      navigate('/');
 
     } catch (error) {
       console.error(error);

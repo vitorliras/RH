@@ -85,7 +85,7 @@ function MySolicitacion() {
       
       <div className="container">
         <button className="botao-adicionar" onClick={openModal}>
-          <FaPlus className='icon-table' />
+          <FaPlus className='icon-table' /> Adicionar
         </button>
 
         <div className="tabela-container">
