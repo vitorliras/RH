@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addDoc, useDoc, getDoc, collection, doc, setDoc } from "firebase/firestore";
 import { auth, firestore } from '../firebase';
@@ -14,31 +14,26 @@ function Login() {
   const [senha, setSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
   const [nome, setNome] = useState('');
-  const [cpf, setCpf] = useState('');
   const [modoCadastro, setModoCadastro] = useState(false);
   const [senhaError, setSenhaError] = useState('');
-  const [ConfirmarsenhaError, setConfirmarsetSenhaError] = useState('');
+  const [confirmarSenhaError, setConfirmarsetSenhaError] = useState('');
+  const [buttonDisabled, setButtonDisabled] = useState(true);
 
+  useEffect(() => {
+    const camposPreenchidos = modoCadastro
+      ? email && senha && confirmarSenha && nome 
+      : email && senha;
 
+    const senhasValidas = !senhaError && !confirmarSenhaError;
 
-  // const handleLogin = async () => {
-  //   try {
-  //     signInWithEmailAndPassword(auth, email, senha)
-  //     .then((userCredential) => {
-  //       console.log(userCredential);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  //     navigate('/');
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+    const condicoesAdicionais = modoCadastro
+      ? senha.length >= 8 && senha === confirmarSenha && email.includes('@') && email.includes('.')
+      : true;
 
-  // Restante do seu código...
+    setButtonDisabled(!(camposPreenchidos && senhasValidas && condicoesAdicionais));
+  }, [email, senha, confirmarSenha, nome, modoCadastro, senhaError, confirmarSenhaError]);
 
-  const navigate = useNavigate(); // Use o hook useNavigate
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     try {
@@ -54,10 +49,8 @@ function Login() {
               const userData = userDoc.data();
               const userName = userData.name;
               if (userName) {
-                // Redirecione para a página "Home" com o nome do usuário
                 navigate(`/${userName}`);
               } else {
-                // Redirecione para a página "Home" sem o nome do usuário
                 navigate('/');
               }
             }
@@ -68,7 +61,7 @@ function Login() {
             icon: 'error',
             title: 'Erro no Login',
             text: 'Usuário ou senha incorretos. Por favor, verifique suas credenciais.',
-            confirmButtonColor: '#1c9ed2', // Cor do botão de confirmação
+            confirmButtonColor: '#1c9ed2', 
 
           });
           console.log(error);
@@ -100,7 +93,7 @@ function Login() {
       e.preventDefault();
       validatePassword();
 
-      if (senhaError || ConfirmarsenhaError) {
+      if (senhaError || confirmarSenhaError) {
         return;
       }
 
@@ -109,7 +102,7 @@ function Login() {
           if (userCredential.user) {
             const userDocRef = doc(firestore, "users", userCredential.user.uid);
             const userData = {
-              name: nome, // Add the user's name to the userData object
+              name: nome, 
             };
             await setDoc(userDocRef, userData);
           }
@@ -138,8 +131,8 @@ function Login() {
   };
 
   const handleCadastroClick = () => {
-    clearFields(); // Chama a função para limpar os campos
-    setModoCadastro(!modoCadastro);  // Altera o estado "modoCadastro" para true
+    clearFields();
+    setModoCadastro(!modoCadastro);  
   };
   return (
     <div>
@@ -206,22 +199,7 @@ function Login() {
                   </div>
                 )}
 
-                {modoCadastro && (
-                  <div className="wrap-input-login validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input
-                      className="input-login"
-                      type="text"
-                      name="Cpf"
-                      placeholder="CPF"
-                      value={cpf}
-                      onChange={(e) => setCpf(e.target.value)}
-                    />
-                    <span className="focus-input-login"></span>
-                    <span className="symbol-input-login">
-                      <i className="fa fa-envelope" aria-hidden="true"></i>
-                    </span>
-                  </div>
-                )}
+     
 
                 <div className="wrap-input-login validate-input" data-validate="Password is required">
                   <input
@@ -261,26 +239,19 @@ function Login() {
                   </div>
                 )}
 
-
-
-                {ConfirmarsenhaError && (
-                  <div className="error-message">{ConfirmarsenhaError}</div>
+                {confirmarSenhaError && (
+                  <div className="error-message">{confirmarSenhaError}</div>
                 )}
 
                 <div className="container-login-form-btn">
-                  <button className="login-form-btn" onClick={modoCadastro ? handleCadastro : handleLogin}>
+                  <button
+                    className={`login-form-btn ${modoCadastro ? `${buttonDisabled ? 'disabled-btn' : ''}` : ''}`}
+                    onClick={modoCadastro ? handleCadastro : handleLogin}
+                    disabled={buttonDisabled}
+                  >
                     {modoCadastro ? 'Cadastrar' : 'Login'}
                   </button>
                 </div>
-
-                {!modoCadastro && (
-                  <div className="text-center p-t-12">
-                    <span className="txt1">Esqueci minha </span>
-                    <a className="txt2 a-login cadastro" href="#">
-                      Senha / Email
-                    </a>
-                  </div>
-                )}
 
                 <div className="text-center p-t-136">
                   <a className="txt2 a-login" onClick={handleCadastroClick}>
