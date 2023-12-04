@@ -1,0 +1,175 @@
+/* Adicione estilos adicionais conforme necessário */
+.tabela-container {
+  position: relative; /* Necessário para posicionar o botão Adicionar corretamente */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas com largura igual */
+  max-width: 700px; /* Largura máxima da tabela */
+  margin: 0 auto; /* Centralizar na tela */
+  border: 2px solid #ddd; /* Adicione uma borda */
+  border-radius: 8px; /* Adicione borda arredondada */
+  overflow: hidden; /* Evite que a borda afete a largura total */
+  margin-top: 20px;
+}
+
+
+.cabecalho, .campo {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 2px solid #ddd; /* Adicione uma linha de separação entre as linhas */
+}
+
+.cabecalho {
+  background-color: #9d89a9; /* Vermelho mais escuro para o cabeçalho */
+  color: white;
+  font-weight: bold;
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   
+}
+
+.botao-acao {
+  background-color: #9d89a9;
+  color: white;
+  border: none;
+  text-align: center;
+  padding: 5px 10px;
+  margin-left: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.botao-acao:hover {
+  background-color: #9d89a9a0;
+
+}
+
+.botao-acao:hover {
+  background-color: #7c6888;
+}
+
+.icon-table{
+  font-size: 14px;
+}
+/* Estilize a linha ao passar o mouse */
+/* .linha {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+} */
+
+.linha:hover {
+  background-color: #f5f5f5; /* Cor de fundo mais clara ao passar o mouse */
+}
+
+/* Adicione estilos adicionais conforme necessário */
+
+
+/* Restante do seu CSS ... */
+
+/* Adicione estilos adicionais conforme necessário */
+
+/* Restante do seu CSS ... */
+
+/* Adicione estilos adicionais conforme necessário */
+
+.container {
+  position: relative;
+}
+
+.botao-adicionar {
+  position: relative;
+  background-color: #4CAF50; /* Cor verde, você pode ajustar conforme necessário */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.botao-adicionar:hover {
+  background-color: #45a049; /* Cor mais escura ao passar o mouse */
+}
+
+/* Adicione estilos adicionais conforme necessário */
+
+/* Restante do seu CSS ... */
+
+/* Estilos para o modal elegante */
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  padding: 20px;
+}
+
+.Modal h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.Modal label {
+  display: block;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.Modal input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.Modal button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.Modal button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.Modal button:hover:disabled {
+  background-color: #ccc;
+}
+
+/* Restante do seu CSS ... */
+
+
+/* Restante do seu CSS ... */
+
+@media (max-width: 425px) {
+  .tabela-container {
+    max-width: 600px; /* A largura máxima é a largura total da tela */
+  }
+
+  .cabecalho, .campo {
+    padding: 8px; /* Reduza o padding para economizar espaço */
+  }
+
+  .acoes {
+    flex-direction: column; /* Empilhe os botões de ação verticalmente */
+    align-items: flex-start; /* Alinhe os botões à esquerda */
+  }
+
+  .botao-acao {
+    margin: 5px 0; /* Adicione espaço entre os botões de ação */
+  }
+}

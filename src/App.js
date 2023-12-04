@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import './stylesheets/header.css'
 import './stylesheets/login.css'
 import './stylesheets/slide.css'
+import './stylesheets/MySolicitacion.css'; 
+
 
 import Home from './page/Home';
 import Calendar from './page/Calendar';
@@ -27,7 +29,7 @@ function App() {
      
         <Routes>
   
-              <Route path='/:userName?'  element={<Home />}/>
+              <Route path='/:userName'  element={<Home />}/>
               <Route path='/CalendarioAnual/:userName?' element={<Calendar />}/>
               <Route path="/PlanoCarreira/:userName?" element={<CarrerPlan />}/>
               <Route path='/Financeiro/:userName?' element={<Finance />}/>
@@ -35,7 +37,7 @@ function App() {
               <Route path="/MinhaEquipe/:userName?" element={<MyTeam />}/>
               <Route path='/ComunicadosInternos/:userName?' element={<InternComunicate />}/>
               <Route path='/MinhasSolicitacoes/:userName?' element={<MySolicitacion />}/>
-              <Route path='/Login' element={<Login />}/>
+              <Route path='/' element={<Login />}/>
   
         </Routes>
   
