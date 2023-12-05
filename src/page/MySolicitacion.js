@@ -14,7 +14,6 @@ function MySolicitacion() {
   const [editIndex, setEditIndex] = useState(null);
 
   useEffect(() => {
-    // Carregar dados do Local Storage
     const storedItens = JSON.parse(localStorage.getItem('itens'));
     if (storedItens) {
       setListaItens(storedItens);
@@ -27,7 +26,6 @@ function MySolicitacion() {
 
   const closeModal = () => {
     setModalIsOpen(false);
-    // Limpar campos ao fechar o modal
     setCodigo('');
     setNome('');
     setDescricao('');
@@ -35,21 +33,17 @@ function MySolicitacion() {
   };
 
   const handleSave = () => {
-    // Verificar se todos os campos estão preenchidos
     if (codigo && nome && descricao) {
-      // Salvar no Local Storage
       const newItem = { codigo, nome, descricao };
       const updatedItens = [...listaItens, newItem];
       localStorage.setItem('itens', JSON.stringify(updatedItens));
       setListaItens(updatedItens);
 
-      // Fechar o modal
       closeModal();
     }
   };
 
   const handleEdit = (index) => {
-    // Abrir modal para edição com valores preenchidos
     setCodigo(listaItens[index].codigo);
     setNome(listaItens[index].nome);
     setDescricao(listaItens[index].descricao);
@@ -58,21 +52,17 @@ function MySolicitacion() {
   };
 
   const handleSaveEdit = () => {
-    // Verificar se todos os campos estão preenchidos
     if (codigo && nome && descricao && editIndex !== null) {
-      // Atualizar item no Local Storage e no estado
       const updatedItens = [...listaItens];
       updatedItens[editIndex] = { codigo, nome, descricao };
       localStorage.setItem('itens', JSON.stringify(updatedItens));
       setListaItens(updatedItens);
 
-      // Fechar o modal e limpar os campos
       closeModal();
     }
   };
 
   const handleRemove = (index) => {
-    // Remover item do Local Storage e do estado
     const updatedItens = [...listaItens];
     updatedItens.splice(index, 1);
     localStorage.setItem('itens', JSON.stringify(updatedItens));
@@ -90,7 +80,7 @@ function MySolicitacion() {
 
         <div className="tabela-container">
           <div className="cabecalho">Código</div>
-          <div className="cabecalho">Nome</div>
+          <div className="cabecalho">Título</div>
           <div className="cabecalho">Descrição</div>
           <div className="cabecalho">Ações</div>
 
@@ -111,7 +101,6 @@ function MySolicitacion() {
           ))}
         </div>
 
-        {/* Modal */}
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
@@ -122,7 +111,7 @@ function MySolicitacion() {
           <label>Código:
             <input type="text" value={codigo} onChange={(e) => setCodigo(e.target.value)} />
           </label>
-          <label>Nome:
+          <label>Título:
             <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} />
           </label>
           <label>Descrição:

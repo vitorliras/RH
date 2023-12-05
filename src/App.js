@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import './stylesheets/header.css'
 import './stylesheets/login.css'
 import './stylesheets/slide.css'
-import './stylesheets/MySolicitacion.css'; 
+import './stylesheets/table.css'; 
 
 
 import Home from './page/Home';
