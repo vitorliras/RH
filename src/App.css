@@ -53,3 +53,62 @@ code {
   text-align: center;
   margin-top: 200px;
 }
+
+
+.container-do-calendario {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  max-width: 300px;
+  margin-top: 80px;
+  margin: 80px auto;
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.btn-calendar {
+  cursor: pointer;
+  font-size: 16px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+}
+
+.dias-da-semana {
+  display: flex;
+  justify-content: space-between;
+  background-color: #eee;
+  padding: 5px;
+}
+
+.dia-da-semana {
+  flex: 1;
+  padding: 5px;
+}
+
+.dias {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.branco {
+  flex: 1;
+  height: 30px;
+}
+
+.dia {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.dia:hover {
+  background-color: #f0f0f0;
+}
+
