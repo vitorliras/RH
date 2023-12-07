@@ -112,3 +112,44 @@ code {
   background-color: #f0f0f0;
 }
 
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  color: #333;
+}
+
+.section {
+  margin-top: 20px;
+}
+
+.section-title {
+  color: #555;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-item {
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.list-item::before {
+  content: "\2022";
+  color: #7c6888;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  position: absolute;
+}
